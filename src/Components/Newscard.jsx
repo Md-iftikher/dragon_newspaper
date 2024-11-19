@@ -3,7 +3,7 @@ import { FaStar, FaEye } from "react-icons/fa";
 
 const Newscard = ({ news }) => {
   return (
-    <div className=" rounded-lg border shadow-md bg-white overflow-hidden m-2">
+    <div className=" rounded-lg border shadow-md bg-white overflow-hidden m-2 grid gap-2">
       {/* Header Section */}
       <div className="flex items-center px-4 py-2 bg-gray-100">
         <img
@@ -16,20 +16,26 @@ const Newscard = ({ news }) => {
           <p className="text-sm text-gray-500">{news.author?.published_date}</p>
         </div>
       </div>
+      <div>
+        <h3 className="text-lg font-bold text-gray-800">{news.title}</h3>
+      </div>
 
       {/* Image */}
-      {news.image_url && (
-        <img
-          className="w-full object-cover h-48"
-          src={news.image_url}
-          alt="News Thumbnail"
-        />
-      )}
+      <div>
+        {news.image_url && (
+          <img
+            className=""
+            src={news.image_url}
+            alt="News Thumbnail"
+          />
+        )}
+      </div>
 
       {/* Content Section */}
       <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-800">{news.title}</h3>
-        <p className="text-sm text-gray-600 mt-2">{news.details.slice(0, 100)}...</p>
+        <p className="text-sm text-gray-600 mt-2">
+          {news.details.slice(0, 100)}...
+        </p>
         <a href="#" className="text-blue-500 text-sm mt-2 block">
           Read More
         </a>
@@ -40,8 +46,12 @@ const Newscard = ({ news }) => {
         {/* Rating */}
         <div className="flex items-center text-yellow-500">
           <FaStar />
-          <span className="ml-1 text-gray-800 text-sm">{news.rating?.number}</span>
-          <span className="ml-2 text-sm text-gray-500">{news.rating?.badge}</span>
+          <span className="ml-1 text-gray-800 text-sm">
+            {news.rating?.number}
+          </span>
+          <span className="ml-2 text-sm text-gray-500">
+            {news.rating?.badge}
+          </span>
         </div>
         {/* Views */}
         <div className="flex items-center text-gray-500">
