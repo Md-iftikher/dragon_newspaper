@@ -4,7 +4,7 @@ import Newscard from '../Components/Newscard';
 
 const CatagoryNews = () => {
     const data = useLoaderData();
-    console.log(data.data);
+    
     const Newsdata = data.data;
 
     return (
